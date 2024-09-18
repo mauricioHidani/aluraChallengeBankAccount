@@ -39,6 +39,7 @@ public class BankAccount {
 	public void start() {
 		OperationType operation = OperationType.START;
 
+		System.out.println(operations.bannerSrc());
 		System.out.println(client);
 		while (operation != OperationType.EXIT) {
 			operation = onChoiceOperation();
