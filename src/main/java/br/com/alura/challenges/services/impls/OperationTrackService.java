@@ -16,26 +16,21 @@ public class OperationTrackService implements IOperationTrackService<Client> {
 
 	@Override
 	public void onCheckBalances(Client client) {
-		if (operationService.checkBalances(client) > 0) {
-			System.out.printf(
-				"""
-				Saldo atual: R$ %.2f
-				-----------------------------------
-				
-				""",
-				operationService.checkBalances(client)
-			);
-			return;
-		}
-
-		System.out.printf(
-			"""
-			Saldo atual: -R$ %.2f
-			-----------------------------------
-			
-			""",
-			(operationService.checkBalances(client) * -1)
-		);
+        int flag = 1;
+        String signal = "";
+        double checkBalance = operationService.checkBalances(client);
+        if (checkBalance < 0) {
+            flag = -1;
+            signal = "-";
+        }
+        System.out.printf(
+            """
+            Saldo atual: %sR$ %.2f
+            -----------------------------------
+            
+            """,
+            signal, checkBalance * flag
+        );
 	}
 
 	@Override
