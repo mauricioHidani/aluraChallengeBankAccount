@@ -16,7 +16,7 @@ public class OperationSalaryAccService extends OperationService {
 
 	@Override
 	public double transfer(double amount, Client client) {
-		final double feeResult = getConfig().getTransferFee();
+		final double feeResult = getConfig().getTransferFee() * amount;
 
 		if (client.getBalance() > (amount + feeResult)) {
 			return client.getBalance() - amount - feeResult;
