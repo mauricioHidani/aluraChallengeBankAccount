@@ -42,13 +42,18 @@ public class OperationTrackService implements IOperationTrackService<Client> {
 	public Client onReceive(Client client, Scanner scanner) {
 		System.out.print("Informe o valor a receber: ");
 		final double receiveAmount = scanner.nextDouble();
+        try {
+            final Client result = new Client(
+                    client,
+                    operationService.receive(receiveAmount, client)
+            );
+            onLoadBalance(result.getBalance());
+            return result;
+        }catch(IllegalArgumentException ex){
+            System.err.println(ex.getMessage());
+            return client;
+        }
 
-		final Client result = new Client(
-			client,
-			operationService.receive(receiveAmount, client)
-		);
-		onLoadBalance(result.getBalence());
-		return result;
 	}
 
 	@Override
@@ -61,7 +66,7 @@ public class OperationTrackService implements IOperationTrackService<Client> {
 				client,
 				operationService.transfer(transferAmount, client)
 			);
-			onLoadBalance(result.getBalence());
+			onLoadBalance(result.getBalance());
 			return result;
 		}
 		catch (RuntimeException ex) {
