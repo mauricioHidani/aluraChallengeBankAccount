@@ -12,15 +12,15 @@ public class OperationSalaryAccService extends OperationService {
 
 	@Override
 	public double receive(double amount, Client client) {
-		return client.getBalence() + amount;
+		return client.getBalance() + amount;
 	}
 
 	@Override
 	public double transfer(double amount, Client client) {
 		final double feeResult = getConfig().getTransferFee();
 
-		if (client.getBalence() > (amount + feeResult)) {
-			return client.getBalence() - amount - feeResult;
+		if (client.getBalance() > (amount + feeResult)) {
+			return client.getBalance() - amount - feeResult;
 		}
 		throw new RuntimeException(
 			"""
@@ -28,7 +28,7 @@ public class OperationSalaryAccService extends OperationService {
 			Saldo: R$ %.2f
 			""".formatted(
 				client.getName(),
-				client.getBalence()
+				client.getBalance()
 			)
 		);
 	}

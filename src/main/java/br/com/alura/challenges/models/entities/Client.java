@@ -9,20 +9,20 @@ public class Client {
 	private final UUID id;
 	private final String name;
 	private final AccountType type;
-	private final double balence;
+	private final double balance;
 
-	public Client(final String name, final AccountType type, final double balence) {
+	public Client(final String name, final AccountType type, final double balance) {
 		this.id = UUID.randomUUID();
 		this.name = name;
 		this.type = type;
-		this.balence = balence;
+		this.balance = balance;
 	}
 
 	public Client(final Client newClient, final double balance) {
 		this.id = newClient.getId();
 		this.name = newClient.getName();
 		this.type = newClient.getType();
-		this.balence = balance;
+		this.balance = balance;
 	}
 
 	//region Access attributes
@@ -38,8 +38,8 @@ public class Client {
 		return type;
 	}
 
-	public double getBalence() {
-		return balence;
+	public double getBalance() {
+		return balance;
 	}
 	//endregion
 
@@ -56,7 +56,7 @@ public class Client {
 			""".formatted(
 				this.name,
 				this.type.getValue(),
-				this.balence
+				this.balance
 			)
 		;
 	}
