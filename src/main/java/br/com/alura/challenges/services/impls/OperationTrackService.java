@@ -77,26 +77,20 @@ public class OperationTrackService implements IOperationTrackService<Client> {
 	}
 
 	private void onLoadBalance(final double balance) {
-		if (balance > 0) {
-			System.out.printf(
-				"""
-				Saldo atualizado R$ %.2f
-				-----------------------------------
-				
-				""",
-				balance
-			);
-			return;
-		}
-
-		System.out.printf(
-			"""
-			Saldo atualizado -R$ %.2f
-			-----------------------------------
-			
-			""",
-			(balance * -1)
-		);
+        int flag = 1;
+        String signal = "";
+        if (balance < 0){
+           flag = -1;
+           signal = "-";
+        }
+        System.out.printf(
+                """
+                Saldo atualizado %sR$ %.2f
+                -----------------------------------
+                
+                """,
+                signal, balance * flag
+        );
 	}
 
 }
