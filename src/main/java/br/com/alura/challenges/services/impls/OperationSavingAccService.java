@@ -18,7 +18,7 @@ public class OperationSavingAccService extends OperationService {
 
 	@Override
 	public double transfer(double amount, Client client) {
-		if (client.getBalance() > amount) {
+		if (client.getBalance() >= amount) {
 			return client.getBalance() - amount;
 		}
 		throw new RuntimeException(
