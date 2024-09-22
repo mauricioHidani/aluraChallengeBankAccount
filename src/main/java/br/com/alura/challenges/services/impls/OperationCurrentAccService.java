@@ -18,7 +18,7 @@ public class OperationCurrentAccService extends OperationService {
 
 	@Override
 	public double transfer(double amount, Client client) {
-		final double feeResult = getConfig().getTransferFee();
+        // TODO O que fazer quando o saldo da conta corrente já está negativo e o cliente ainda quer fazer transferências?
 		final double feeResult = getConfig().getTransferFee() * amount;
 		final double overdraftResult = (amount + feeResult) * getConfig().getOverdraftRate();
 
