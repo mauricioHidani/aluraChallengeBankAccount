@@ -23,8 +23,10 @@ public class OperationCurrentAccService extends OperationService {
 
 		if (client.getBalence() > (amount + feeResult)) {
 			return client.getBalence() - amount - feeResult;
+		if (client.getBalance() > (amount + feeResult)) {
+			return client.getBalance() - amount - feeResult;
 		}
-		return client.getBalence() - amount - feeResult - overdraftResult;
+		return client.getBalance() - amount - feeResult - overdraftResult;
 	}
 
 }

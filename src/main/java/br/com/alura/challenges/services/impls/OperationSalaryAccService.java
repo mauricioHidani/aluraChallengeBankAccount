@@ -2,7 +2,6 @@ package br.com.alura.challenges.services.impls;
 
 import br.com.alura.challenges.configs.AppConfig;
 import br.com.alura.challenges.models.entities.Client;
-import br.com.alura.challenges.services.IOperationService;
 
 public class OperationSalaryAccService extends OperationService {
 
