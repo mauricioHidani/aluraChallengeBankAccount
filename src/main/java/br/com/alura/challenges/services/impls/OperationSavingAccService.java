@@ -11,8 +11,9 @@ public class OperationSavingAccService extends OperationService {
 
 	@Override
 	public double receive(double amount, Client client) {
-        if(amount < 0)
-            throw new IllegalArgumentException("Valor de recebimento não pode ser negativo");
+        if(amount < 0) {
+			throw new IllegalArgumentException("Valor de recebimento não pode ser negativo");
+		}
         return client.getBalance() + amount;
 	}
 
