@@ -31,7 +31,7 @@ public class Operations {
 		return (
    			"""
 			Operações
-		   
+		 
 			1- Consultar saldos
 			2- Receber valor
 			3- Transferir valor
