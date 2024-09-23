@@ -27,7 +27,7 @@ public class BankAccount {
 	private BankAccount() {
 	}
 
-	public static BankAccount of(Client client) {
+	public static BankAccount of(final Client client) {
 		if (instance == null) {
 			instance = new BankAccount();
 			instance.client = client;

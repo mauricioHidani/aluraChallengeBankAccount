@@ -40,7 +40,7 @@ public class Operations {
 		);
 	}
 
-	public OperationType getOperation(Scanner scanner) {
+	public OperationType getOperation(final Scanner scanner) {
 		final int choice = scanner.nextInt();
 		if (choice > 0 && choice < (OperationType.values().length -1)) {
 			return OperationType.values()[choice];

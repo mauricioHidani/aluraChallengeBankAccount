@@ -17,17 +17,17 @@ public class OperationService implements IOperationService<Client> {
 	}
 
 	@Override
-	public double checkBalances(Client client) {
+	public double checkBalances(final Client client) {
 		return client.getBalance();
 	}
 
 	@Override
-	public double receive(double amount, Client client) {
+	public double receive(final double amount, final Client client) {
 		return client.getBalance() + amount;
 	}
 
 	@Override
-	public double transfer(double amount, Client client) {
+	public double transfer(final double amount, final Client client) {
 		return client.getBalance() - amount;
 	}
 

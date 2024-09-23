@@ -5,17 +5,17 @@ import br.com.alura.challenges.models.entities.Client;
 
 public class OperationSalaryAccService extends OperationService {
 
-	public OperationSalaryAccService(AppConfig config) {
+	public OperationSalaryAccService(final AppConfig config) {
 		super(config);
 	}
 
 	@Override
-	public double receive(double amount, Client client) {
+	public double receive(final double amount, final Client client) {
 		return client.getBalance() + amount;
 	}
 
 	@Override
-	public double transfer(double amount, Client client) {
+	public double transfer(final double amount, final Client client) {
 		final double feeResult = getConfig().getTransferFee() * amount;
 
 		if (client.getBalance() > (amount + feeResult)) {
