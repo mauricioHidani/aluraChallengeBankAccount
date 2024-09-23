@@ -1,21 +1,21 @@
 package br.com.alura.challenges.services.impls;
 
+import java.util.Scanner;
+
 import br.com.alura.challenges.models.entities.Client;
 import br.com.alura.challenges.services.IOperationService;
 import br.com.alura.challenges.services.IOperationTrackService;
-
-import java.util.Scanner;
 
 public class OperationTrackService implements IOperationTrackService<Client> {
 
 	private final IOperationService<Client> operationService;
 
-	public OperationTrackService(IOperationService<Client> operationService) {
+	public OperationTrackService(final IOperationService<Client> operationService) {
 		this.operationService = operationService;
 	}
 
 	@Override
-	public void onCheckBalances(Client client) {
+	public void onCheckBalances(final Client client) {
         int flag = 1;
         String signal = "";
         double checkBalance = operationService.checkBalances(client);
@@ -29,12 +29,12 @@ public class OperationTrackService implements IOperationTrackService<Client> {
             -----------------------------------
             
             """,
-            signal, checkBalance * flag
+            signal, (checkBalance * flag)
         );
 	}
 
 	@Override
-	public Client onReceive(Client client, Scanner scanner) {
+	public Client onReceive(final Client client, final Scanner scanner) {
 		System.out.print("Informe o valor a receber: ");
 		final double receiveAmount = scanner.nextDouble();
         try {
@@ -44,7 +44,8 @@ public class OperationTrackService implements IOperationTrackService<Client> {
             );
             onLoadBalance(result.getBalance());
             return result;
-        }catch(IllegalArgumentException ex){
+        }
+		catch (IllegalArgumentException ex) {
             System.err.println(ex.getMessage());
             return client;
         }
@@ -52,7 +53,7 @@ public class OperationTrackService implements IOperationTrackService<Client> {
 	}
 
 	@Override
-	public Client onTransfer(Client client, Scanner scanner) {
+	public Client onTransfer(final Client client, final Scanner scanner) {
 		System.out.print("Informe o valor que deseja transferir: ");
 		final double transferAmount = scanner.nextDouble();
 
@@ -79,12 +80,12 @@ public class OperationTrackService implements IOperationTrackService<Client> {
            signal = "-";
         }
         System.out.printf(
-                """
-                Saldo atualizado %sR$ %.2f
-                -----------------------------------
+			"""
+			Saldo atualizado %sR$ %.2f
+			-----------------------------------
                 
-                """,
-                signal, balance * flag
+			""",
+			signal, (balance * flag)
         );
 	}
 
