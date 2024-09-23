@@ -5,12 +5,12 @@ import br.com.alura.challenges.models.entities.Client;
 
 public class OperationSavingAccService extends OperationService {
 
-	public OperationSavingAccService(AppConfig config) {
+	public OperationSavingAccService(final AppConfig config) {
 		super(config);
 	}
 
 	@Override
-	public double receive(double amount, Client client) {
+	public double receive(final double amount, final Client client) {
         if(amount < 0) {
 			throw new IllegalArgumentException("Valor de recebimento não pode ser negativo");
 		}
@@ -18,7 +18,7 @@ public class OperationSavingAccService extends OperationService {
 	}
 
 	@Override
-	public double transfer(double amount, Client client) {
+	public double transfer(final double amount, final Client client) {
 		if (client.getBalance() >= amount) {
 			return client.getBalance() - amount;
 		}
