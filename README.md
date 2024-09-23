@@ -29,10 +29,10 @@
 
 **Opção transferir valor:**
 - _Contas Correntes_:
-   - É cobrado tarifa de transferência _12%_;
+   - É cobrado tarifa de transferência _R$12,30_;
    - Caso não houver saldo suficiente em conta é cobrado tarifa de trasferência + valor de transferência com a _Taxa_ de _30%_.
 - _Conta Salário_:
-   - É cobrado tarifa de transferência _12%_.
+   - É cobrado tarifa de transferência _R$12,30_.
 - _Conta Poupança_:
    - Não é cobrado tarifa de transferência.
 
