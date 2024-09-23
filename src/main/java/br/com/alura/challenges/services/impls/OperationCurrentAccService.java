@@ -11,14 +11,14 @@ public class OperationCurrentAccService extends OperationService {
 
 	@Override
 	public double receive(double amount, Client client) {
-        if(amount < 0)
+        if (amount < 0) {
             throw new IllegalArgumentException("Valor de recebimento não pode ser negativo");
+		}
 		return client.getBalance() + amount;
 	}
 
 	@Override
 	public double transfer(double amount, Client client) {
-        // TODO O que fazer quando o saldo da conta corrente já está negativo e o cliente ainda quer fazer transferências?
 		final double feeResult = getConfig().getTransferFee() * amount;
 		final double overdraftResult = (amount + feeResult) * getConfig().getOverdraftRate();
 
